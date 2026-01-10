@@ -1,0 +1,43 @@
+body{
+    background:#eef2f5;
+    font-family:Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:20px;
+}
+.container{
+    background:#fff;
+    width:100%;
+    max-width:400px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,.1);
+}
+h2{text-align:center;}
+input,textarea,button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    font-size:14px;
+}
+.row{
+    display:flex;
+    gap:6px;
+}
+button{
+    background:#007bff;
+    color:white;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+}
+button.copied{
+    background:#28a745;
+}
+.gen,.all{
+    margin-top:15px;
+}
+textarea{
+    height:90px;
+    resize:none;
+}
