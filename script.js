@@ -1,56 +1,46 @@
-function randomPass(){
-    let upper="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    let lower="abcdefghijklmnopqrstuvwxyz";
-    let num="0123456789";
-    let sp="@#$!";
-
-    let pass="";
-    pass+=upper[Math.floor(Math.random()*upper.length)];
-    pass+=lower[Math.floor(Math.random()*lower.length)];
-    pass+=num[Math.floor(Math.random()*num.length)];
-    pass+=num[Math.floor(Math.random()*num.length)];
-    pass+=sp[Math.floor(Math.random()*sp.length)];
-    pass+=sp[Math.floor(Math.random()*sp.length)];
-
-    let all=upper+lower+num+sp;
-    while(pass.length<8){
-        pass+=all[Math.floor(Math.random()*all.length)];
-    }
-    return pass.split('').sort(()=>0.5-Math.random()).join('');
+body{
+  background:#eef2f5;
+  font-family:Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  padding:20px;
 }
-
-function generate(){
-    let email=document.getElementById("email").value.trim();
-    let mobile=document.getElementById("mobile").value.trim();
-    if(!email||!mobile) return;
-
-    let base=email.split("@")[0].replace(/[^a-zA-Z]/g,"").toLowerCase();
-    let letters="abcdefghijklmnopqrstuvwxyz";
-
-    let id=base;
-    id+=Math.floor(Math.random()*10);
-    id+=letters[Math.floor(Math.random()*letters.length)];
-    id+=letters[Math.floor(Math.random()*letters.length)];
-    id+=letters[Math.floor(Math.random()*letters.length)];
-
-    pass.value=randomPass();
-    userid.value=id;
-    phone.value=mobile;
-    mailout.value=email;
-
-    final.value=
-`${pass.value}
-${id}
-${mobile}
-${email}`;
+.container{
+  background:#fff;
+  width:100%;
+  max-width:420px;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 0 12px rgba(0,0,0,.15);
 }
-
-function copyText(btn,id){
-    navigator.clipboard.writeText(document.getElementById(id).value);
-    btn.classList.add("copied");
+h2{
+  text-align:center;
+  margin-bottom:10px;
 }
-
-function copyAll(btn){
-    navigator.clipboard.writeText(final.value);
-    btn.classList.add("copied");
+input, textarea, button{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  font-size:14px;
+}
+.row{
+  display:flex;
+  gap:6px;
+}
+button{
+  background:#007bff;
+  color:#fff;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+}
+button.copied{
+  background:#28a745;
+}
+.gen, .all{
+  margin-top:15px;
+}
+textarea{
+  height:80px;
+  resize:none;
 }
